@@ -7,16 +7,15 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Simulate form success (replace with real email service later)
     toast.success('Message sent! I’ll get back to you soon 🚀');
     setForm({ name: '', email: '', message: '' });
   };
@@ -52,7 +51,7 @@ export default function ContactPage() {
           value={form.message}
           onChange={handleChange}
           required
-          rows="5"
+          rows={5}
           className="w-full px-4 py-2 rounded-md bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-blue-400"
         />
 

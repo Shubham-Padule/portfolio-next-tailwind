@@ -1,8 +1,13 @@
 import './globals.css';
-import Navbar from './components/Navbar'; // Add this
-import Footer from './components/Footer'; // already there
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import { ReactNode } from 'react'; // ✅ Add this
 
-export default function RootLayout({ children }) {
+type RootLayoutProps = {
+  children: ReactNode;
+};
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className="bg-black text-white">
