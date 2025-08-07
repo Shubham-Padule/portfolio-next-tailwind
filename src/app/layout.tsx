@@ -1,8 +1,8 @@
 import './globals.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { ReactNode } from 'react';
-import { Analytics } from '@vercel/analytics/react'; // ✅ Use react version (unless you're in `middleware` or server)
+import { ReactNode } from 'react'; // ✅ Add this
+import { Analytics } from "@vercel/analytics/next"
 
 type RootLayoutProps = {
   children: ReactNode;
@@ -11,16 +11,10 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <head />
-      <body className="bg-black text-white min-h-screen flex flex-col">
+      <body className="bg-black text-white">
         <Navbar />
-        
-        <main className="flex-1">
-          {children}
-        </main>
-        
+        <main>{children}</main>
         <Footer />
-
         <Analytics />
       </body>
     </html>
